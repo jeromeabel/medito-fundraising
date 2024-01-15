@@ -1,3 +1,8 @@
+type NavlinkType = {
+  href: string;
+  label: string;
+};
+
 export type SiteType = {
   name: string;
   description: string;
@@ -13,6 +18,7 @@ export type SiteType = {
     instagram: string;
     linkedin: string;
   };
+  nav: NavlinkType[];
 };
 
 export const SITE: SiteType = {
@@ -35,4 +41,9 @@ export const SITE: SiteType = {
     instagram: 'https://www.instagram.com/meditohq',
     linkedin: 'https://www.linkedin.com/in//company/meditofoundation',
   },
+  nav: [
+    { label: 'Home', href: '/' },
+    { label: 'About', href: '/about' },
+    { label: 'Projects', href: '/projects' },
+  ],
 };

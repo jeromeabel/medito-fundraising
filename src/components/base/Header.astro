@@ -1,5 +1,27 @@
 ---
-
+import { SITE } from '@utils/constants';
+import Container from '@components/base/Container.astro';
+import LogoLink from '@components/links/LogoLink.astro';
 ---
 
-<header>HEADERs</header>
+<header class='py-4 shadow'>
+  <Container>
+    <div class='flex justify-between items-center'>
+      <LogoLink />
+      <nav>
+        <ul class='flex gap-8'>
+          {
+            SITE.nav.map((link) => (
+              <a
+                class='font-bold text-black/60 hover:text-black'
+                href={link.href}
+              >
+                {link.label}
+              </a>
+            ))
+          }
+        </ul>
+      </nav>
+    </div>
+  </Container>
+</header>

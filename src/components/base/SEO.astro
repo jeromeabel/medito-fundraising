@@ -19,7 +19,6 @@ const {
 
 const title = `${page} - ${SITE.name}`;
 const canonicalWebsiteURL = ''; //new URL(Astro.url.pathname, Astro.site);
-console.log(Astro.url);
 const socialImageURL = new URL(image.src, Astro.url);
 const publishedDateString = publishedDate.toISOString().slice(0, 10);
 ---
