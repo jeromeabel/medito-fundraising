@@ -1,8 +1,8 @@
 # Medito Fundraising
 
-[![Astro](https://img.shields.io/badge/Astro-4.0-yellow)](https://astro.build/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.2-blue)](https://www.typescriptlang.org/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.0-blue)](https://tailwindcss.com/)
+[![Astro](https://img.shields.io/badge/Astro-4.1-yellow)](https://astro.build/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.3-blue)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4-blue)](https://tailwindcss.com/)
 
 I have 3 or 4 days to develop a Web App for the [Medito foundation](https://meditofoundation.org/).
 
