@@ -1,0 +1,29 @@
+---
+import type { ImageMetadata } from 'astro';
+
+import Header from '@components/base/Header.astro';
+import Footer from '@components/base/Footer.astro';
+import SEO from '@components/base/SEO.astro';
+
+interface Props {
+  title?: string | undefined;
+  description?: string | undefined;
+  publishedDate?: Date | undefined;
+  image?: ImageMetadata | undefined;
+}
+
+const { title, description, publishedDate, image } = Astro.props;
+---
+
+<html lang='en' class='scroll-smooth'>
+  <head>
+    <SEO page={title} {description} {publishedDate} {image} />
+  </head>
+  <body class='grid min-h-screen grid-rows-[auto_1fr_auto]'>
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>
