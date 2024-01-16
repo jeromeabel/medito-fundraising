@@ -6,6 +6,10 @@ import cloudflare from '@astrojs/cloudflare';
 
 // https://astro.build/config
 export default defineConfig({
+  image: {
+    domains: ['images.unsplash.com'],
+    remotePatterns: [{ protocol: 'https' }],
+  },
   output: 'server',
   integrations: [
     tailwind(),
