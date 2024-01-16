@@ -1,0 +1,15 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '@layouts/Layout.astro';
+import PostsGrid from '@components/post/PostsGrid.astro';
+import H1 from '@components/base/H1.astro';
+
+const posts = await getCollection('blog');
+
+export const prerender = true;
+---
+
+<Layout title='Blog'>
+  <H1>Blog</H1>
+  <PostsGrid {posts} />
+</Layout>

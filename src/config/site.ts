@@ -24,5 +24,6 @@ export const SITE: SiteType = {
     { label: 'Home', href: '/' },
     { label: 'About', href: '/about' },
     { label: 'Campaigns', href: '/campaign' },
+    { label: 'Blog', href: '/blog' },
   ],
 };

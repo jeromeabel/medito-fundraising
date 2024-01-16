@@ -1,0 +1,26 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+export type Props = {
+  posts: CollectionEntry<'blog'>[];
+  limit?: number;
+};
+
+const { posts, limit = 20 } = Astro.props;
+---
+
+<section class=' grid my-16 gap-16 grid-cols-3'>
+  {
+    posts.slice(0,limit).map((post) => (
+      <a
+        class='text-lg border-s p-8 hover:bg-gray-100'
+        href={`/blog/${post.slug}`}
+      >
+        {post.data.title}
+        <p class='text-gray-400 text-sm uppercase'>
+          {post.data.date.toUTCString().slice(0, -13)}
+        </p>
+      </a>
+    ))
+    }
+</section>
