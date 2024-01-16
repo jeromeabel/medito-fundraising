@@ -1,0 +1,23 @@
+---
+import type { Tables } from '@config/supabase.types.ts';
+
+import H2 from '@components/base/H2.astro';
+import { Image } from 'astro:assets';
+
+interface Props {
+  campaign: Tables<'campaigns'>;
+}
+
+const { campaign } = Astro.props;
+const imageSrc = `${campaign.image_link}?q=80&w=400&auto=format&fit=crop`;
+---
+
+<a href={`/campaign/${campaign.id}`} class='border flex hover:bg-gray-100'>
+  <Image src={imageSrc} width={250} height={200} alt={campaign.title} />
+
+  <div class='px-6 py-4'>
+    <h2 class='text-xl font-bold'>{campaign.title}</h2>
+    <p>{campaign.description}</p>
+    <p>Goal: {campaign.goal}$</p>
+  </div>
+</a>
