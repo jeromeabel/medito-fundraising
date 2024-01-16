@@ -15,6 +15,7 @@ export interface Database {
           description: string | null;
           goal: number | null;
           id: number;
+          image_link: string | null;
           title: string | null;
         };
         Insert: {
@@ -22,6 +23,7 @@ export interface Database {
           description?: string | null;
           goal?: number | null;
           id?: number;
+          image_link?: string | null;
           title?: string | null;
         };
         Update: {
@@ -29,6 +31,7 @@ export interface Database {
           description?: string | null;
           goal?: number | null;
           id?: number;
+          image_link?: string | null;
           title?: string | null;
         };
         Relationships: [];
