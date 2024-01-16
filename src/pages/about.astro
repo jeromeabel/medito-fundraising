@@ -1,10 +1,61 @@
 ---
 import H1 from '@components/base/H1.astro';
+import H2 from '@components/base/H2.astro';
 import Layout from '@layouts/Layout.astro';
 
 export const prerender = true;
 ---
 
 <Layout title='About'>
-  <H1>About</H1>
+  <div class='prose prose-xl mx-auto'>
+    <H1>About</H1>
+
+    <p>
+      Welcome to the Medito community, where meditation becomes accessible to
+      all through your support and generosity. Our fundraising project aims to
+      enhance the meditative experience on the Medito app, a free meditation
+      application designed to help everyone find inner peace.
+    </p>
+    <H2 id='our-mission'>Our Mission</H2>
+    <p>
+      Our mission is simple yet powerful: to make meditation accessible to all,
+      without financial barriers. With your help, we can continue to improve and
+      expand the Medito app, providing a valuable resource for mental health and
+      well-being.
+    </p>
+    <H2 id='how-you-can-contribute'>How You Can Contribute</H2>
+    <ul>
+      <li>
+        <p>
+          <strong>Make a Donation:</strong> Every contribution, big or small, brings
+          us closer to our common goal. Your donation will support the ongoing development
+          of the app, allowing more people to benefit from meditation.
+        </p>
+      </li>
+      <li>
+        <p>
+          <strong>Explore FAQs:</strong> To learn more about our initiative and how
+          your support makes a difference, check out our Frequently Asked Questions
+          section.
+        </p>
+      </li>
+      <li>
+        <p>
+          <strong>Discover Rewards:</strong> We’ve prepared exclusive rewards to
+          express our gratitude to our generous donors. Explore them and join our
+          support circle.
+        </p>
+      </li>
+    </ul>
+    <H2 id='current-progress'>Current Progress</H2>
+    <p>
+      [Progress Bar]<br />
+      $[Amount Raised] of $[Total Goal] raised so far.
+    </p>
+    <p>
+      Join us on this meditative journey and contribute to building a more
+      mindful and connected community.
+    </p>
+    <p>[<strong>Make a Donation Now</strong>]</p>
+  </div>
 </Layout>
