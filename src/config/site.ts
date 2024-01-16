@@ -44,6 +44,6 @@ export const SITE: SiteType = {
   nav: [
     { label: 'Home', href: '/' },
     { label: 'About', href: '/about' },
-    { label: 'Projects', href: '/projects' },
+    { label: 'Campaigns', href: '/campaign' },
   ],
 };
