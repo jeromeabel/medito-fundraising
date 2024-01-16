@@ -1,0 +1,39 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  label: string;
+  href: string;
+  outline?: boolean;
+  rounded?: boolean;
+  icon?: string;
+}
+
+const { label, href, outline = false, rounded = false, icon } = Astro.props;
+
+const cssOutline = outline
+  ? 'bg-green-500 bg-opacity-50 text-white hover:bg-white hover:text-black'
+  : 'bg-green-500 text-white hover:bg-green-600';
+---
+
+<a
+  class:list={[
+    { 'rounded-full': rounded },
+    { 'flex items-center gap-2': icon },
+    `w-fit font-medium whitespace-nowrap px-2 group py-1 text-xl transition-all md:px-6 md:py-3 ${cssOutline}`,
+  ]}
+  href={href}
+  aria-label={label}
+  title={label}
+>
+  {label}
+  {
+    icon ? (
+      <Icon
+        size={32}
+        name={icon}
+        class='group-hover:translate-x-3 transition-all duration-300'
+      />
+    ) : null
+  }
+</a>
