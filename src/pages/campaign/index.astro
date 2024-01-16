@@ -1,10 +1,17 @@
 ---
+import { getJson } from '@services/fetchAPI';
+import type { Tables } from '@config/supabase.types.ts';
+
 import Layout from '@layouts/Layout.astro';
 import H1 from '@components/base/H1.astro';
 import CampaignsList from '@components/campaign/CampaingsList.astro';
+
+const campaigns: Tables<'campaigns'>[] = await getJson(
+  `${Astro.url.origin}/api/campaigns`
+);
 ---
 
-<Layout title='Campaigns'>
+<Layout title='All campaigns'>
   <H1>All campaigns</H1>
-  <CampaignsList />
+  <CampaignsList {campaigns} />
 </Layout>

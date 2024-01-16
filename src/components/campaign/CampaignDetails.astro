@@ -1,15 +1,15 @@
 ---
-import { getJson } from '@services/fetchAPI';
 import type { Tables } from '@config/supabase.types.ts';
+
 import H1 from '@components/base/H1.astro';
 
-const { id } = Astro.params;
+interface Props {
+  campaign: Tables<'campaigns'>;
+}
 
-const data: Tables<'campaigns'> = await getJson(
-  `${Astro.url.origin}/api/campaign/${id}`
-);
+const { campaign } = Astro.props;
 ---
 
-<H1>{data.title}</H1>
-<p>{data.description}</p>
-<p>Goal: {data.goal}$</p>
+<H1>{campaign.title}</H1>
+<p>{campaign.description}</p>
+<p>Goal: {campaign.goal}$</p>
