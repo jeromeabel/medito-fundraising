@@ -1,0 +1,27 @@
+---
+import heroImage from '@assets/images/hero.jpg';
+import { Image } from 'astro:assets';
+import H1 from '@components/base/H1.astro';
+import CTALink from '@components/links/CTALink.astro';
+---
+
+<div
+  class='h-[500px] overflow-hidden relative grid items-center bg-gradient-to-r from-black'
+>
+  <Image
+    src={heroImage}
+    loading='eager'
+    aria-hidden='true'
+    alt=''
+    class='absolute h-full w-full object-cover -z-10'
+  />
+  <div class='text-white p-16 w-1/2 flex flex-col gap-4'>
+    <H1>Contribute to the Medito community</H1>
+    <p class='text-lg mb-4'>
+      Join hands for <strong>mindfulness</strong>! Your support fuels our
+      mission to make meditation accessible to everyone. Every donation brings
+      us closer to a more peaceful world.
+    </p>
+    <CTALink label='Contribute now' href='/campaign' icon='CarbonArrowRight' />
+  </div>
+</div>

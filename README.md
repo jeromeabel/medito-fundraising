@@ -45,3 +45,8 @@ Open the browser at the address: http://localhost:4321/
 - Stack - Features
 - Steps
 - Workflow
+
+## Credits
+
+- The Hero image from [unplash/Ashley Batz](https://unsplash.com/fr/photos/personne-marchant-sur-la-plage-pendant-la-journee-betmVWGYcLY)
+- All images from unsplash.com
