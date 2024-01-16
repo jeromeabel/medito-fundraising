@@ -1,0 +1,23 @@
+---
+import { getJson } from '@services/fetchAPI';
+import type { Tables } from '@config/supabase.types.ts';
+
+const data: Tables<'campaigns'>[] = await getJson(
+  `${Astro.url.origin}/api/campaigns`
+);
+---
+
+<ul
+  class='mt-8 flex flex-col gap-2 border rounded-xl shadow bg-stone-200 p-8 w-fit'
+>
+  {
+    data.map((c) => (
+      <li>
+        -
+        <a href={`/campaign/${c.id}`} class='hover:text-green-500'>
+          {c.title}
+        </a>
+      </li>
+    ))
+  }
+</ul>

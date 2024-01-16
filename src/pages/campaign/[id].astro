@@ -1,22 +1,9 @@
 ---
 import H1 from '@components/base/H1.astro';
 import Layout from '@layouts/Layout.astro';
-import { supabase } from '@config/supabase';
-
-const { id } = Astro.params;
-
-const { data, error } = await supabase
-  .from('campaigns')
-  .select('*')
-  .eq('id', Number(id));
-if (error) {
-  console.error(error);
-  throw error;
-}
+import CampaignDetails from '@components/campaign/CampaignDetails.astro';
 ---
 
-<Layout>
-  <H1>Campaign: {data[0].title}</H1>
-  <p>{data[0].description}</p>
-  <p>GOAL: {data[0].goal}$</p>
+<Layout title='Details'>
+  <CampaignDetails />
 </Layout>

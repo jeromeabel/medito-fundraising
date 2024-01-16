@@ -1,8 +1,10 @@
 ---
-import H1 from '@components/base/H1.astro';
 import Layout from '@layouts/Layout.astro';
+import H1 from '@components/base/H1.astro';
+import CampaignsList from '@components/campaign/CampaingsList.astro';
 ---
 
-<Layout>
-  <H1>Campaigns</H1>
+<Layout title='Campaigns'>
+  <H1>All campaigns</H1>
+  <CampaignsList />
 </Layout>
