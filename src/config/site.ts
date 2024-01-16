@@ -27,3 +27,22 @@ export const SITE: SiteType = {
     { label: 'Blog', href: '/blog' },
   ],
 };
+
+export const FOOTER = [
+  {
+    title: 'Organization',
+    items: ['About Medito.org', 'Legal Notices', 'Impact', 'Jobs', 'Team'],
+  },
+  {
+    title: 'Community',
+    items: ['Blog', 'Press', 'Community Rules'],
+  },
+  {
+    title: 'Support',
+    items: ['Help', 'Guides', 'Data Usage Policy', 'Terms', 'Cookies'],
+  },
+  {
+    title: 'Social media',
+    items: ['Twitter', 'Facebook', 'Instagram'],
+  },
+];
