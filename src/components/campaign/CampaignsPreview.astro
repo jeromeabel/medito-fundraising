@@ -5,6 +5,7 @@ import CampaignPreviewSmall from '@components/campaign/CampaignPreviewSmall.astr
 import H2 from '@components/base/H2.astro';
 import Section from '@components/base/Section.astro';
 import CTALink from '@components/links/CTALink.astro';
+import Link from '@components/links/Link.astro';
 
 interface Props {
   campaigns: Tables<'campaigns'>[];
@@ -23,13 +24,8 @@ const firstCampaign: Tables<'campaigns'> = campaigns.splice(3).splice(0, 1)[0];
       <div class='flex flex-col gap-3'>
         {campaigns.map((campaign) => <CampaignPreviewSmall {campaign} />)}
       </div>
-      <div class='self-center my-auto'>
-        <CTALink
-          label='Discover all campaigns'
-          href='/campaign'
-          icon='CarbonArrowRight'
-          rounded
-        />
+      <div>
+        <Link href='/blog'>See all campaigns ⇢</Link>
       </div>
     </div>
   </div>
