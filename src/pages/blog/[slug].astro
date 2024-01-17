@@ -23,12 +23,10 @@ const { Content } = await post.render();
 export const prerender = true;
 ---
 
-<Layout title='jjojoj'>
+<Layout title={post.data.title}>
   <Link href='/blog'>⇠ Back to blog</Link>
-
   <article class='prose prose-lg my-16'>
     <H1>{post.data.title}</H1>
-
     <Content />
   </article>
 </Layout>
