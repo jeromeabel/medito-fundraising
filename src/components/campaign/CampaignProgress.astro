@@ -18,13 +18,6 @@ const raised = donors.reduce(
   0
 );
 const daysLeft = 16;
-let raisedPercentage = 0;
-if (campaign.goal) {
-  raisedPercentage = Math.ceil((raised * 100) / campaign.goal);
-}
-// const raisedPercentage = 33;
-// const cssWidth = `w-[${raisedPercentage}%]`;w
-// console.log(raisedPercentage);
 ---
 
 <div class='p-8 flex flex-col gap-8'>
