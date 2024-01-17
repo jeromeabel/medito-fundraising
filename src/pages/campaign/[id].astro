@@ -1,8 +1,13 @@
 ---
-import { getJson } from '@services/fetchAPI';
 import type { Tables } from '@config/supabase.types.ts';
+import { getJson } from '@services/fetchAPI';
+
 import Layout from '@layouts/Layout.astro';
 import CampaignDetails from '@components/campaign/CampaignDetails.astro';
+import CampaignQuestions from '@components/campaign/CampaignQuestions.astro';
+import CampaignProgress from '@components/campaign/CampaignProgress.astro';
+import CampaignDonors from '@components/campaign/CampaignDonors.astro';
+import CampaignForm from '@components/campaign/CampaignForm.astro';
 
 const { id } = Astro.params;
 
@@ -11,6 +16,17 @@ const campaign: Tables<'campaigns'> = await getJson(
 );
 ---
 
-<Layout title={campaign.title || 'Details'}>
-  <CampaignDetails {campaign} />
+<Layout title={campaign.title || 'Campaign'}>
+  <div class='flex gap-8'>
+    <div>
+      <CampaignDetails {campaign} />
+      <CampaignQuestions {campaign} />
+    </div>
+
+    <div class='flex-1'>
+      <CampaignProgress {campaign} />
+      <CampaignForm {campaign} />
+      <CampaignDonors {campaign} />
+    </div>
+  </div>
 </Layout>

@@ -1,0 +1,73 @@
+---
+import type { Tables } from '@config/supabase.types.ts';
+import { getJson } from '@services/fetchAPI';
+
+interface Props {
+  campaign: Tables<'campaigns'>;
+}
+
+const { campaign } = Astro.props;
+
+const donors: Tables<'donors'>[] = await getJson(
+  `${Astro.url.origin}/api/campaign/${campaign.id}/donors`
+);
+
+const donorsNb = donors.length;
+const raised = donors.reduce(
+  (sum: number, donor: Tables<'donors'>) => (sum += donor.amount || 0),
+  0
+);
+const daysLeft = 16;
+const raisedPercentage = Math.ceil((raised * 100) / campaign.goal);
+// const raisedPercentage = 33;
+// const cssWidth = `w-[${raisedPercentage}%]`;
+// console.log(raisedPercentage);
+---
+
+<div class='border p-8 flex flex-col gap-8'>
+  <astro-greet data-message={raisedPercentage}>
+    <button>Saluer!</button>
+  </astro-greet>
+
+  <div>
+    <div class='h-10 bg-gray-50 border relative'>
+      <div id='progress' class='bg-green-500 h-full absolute left-0 z-10'></div>
+    </div>
+    <div class='flex justify-between'>
+      <div class='text-green-500'>
+        <p class='text-3xl font-bold'>{raised}$</p><p>Raised</p>
+      </div>
+      <div class='text-gray-500'>
+        <p class='text-3xl font-bold'>{campaign.goal}$</p><p>Goal</p>
+      </div>
+    </div>
+  </div>
+
+  <div class='text-gray-500'>
+    <p class='text-3xl font-bold'>{donorsNb}</p>
+    <p>Contributors</p>
+  </div>
+
+  <div class='text-gray-500'>
+    <p class='text-3xl font-bold'>{daysLeft}</p>
+    <p>Days before end</p>
+  </div>
+</div>
+
+<script>
+  const progressBar = document.getElementById('progress');
+
+  class AstroGreet extends HTMLElement {
+    constructor() {
+      super();
+      const message = this.dataset.message;
+      const button = this.querySelector('button');
+      button?.addEventListener('click', () => {
+        // alert(message);
+        progressBar?.classList.add(`w-[${message}%]`);
+      });
+    }
+  }
+
+  customElements.define('astro-greet', AstroGreet);
+</script>
