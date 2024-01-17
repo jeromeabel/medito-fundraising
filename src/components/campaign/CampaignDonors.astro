@@ -1,11 +1,44 @@
 ---
+import H2 from '@components/base/H2.astro';
 import type { Tables } from '@config/supabase.types.ts';
+import { getJson } from '@services/fetchAPI';
 
 interface Props {
   campaign: Tables<'campaigns'>;
 }
-
 const { campaign } = Astro.props;
+
+const donors: Tables<'donors'>[] = await getJson(
+  `${Astro.url.origin}/api/campaign/${campaign.id}/donors`
+);
+
+const donorsNb = donors.length;
 ---
 
-<div>...</div>
+<div class='border-t p-8'>
+  <div class='flex justify-between'>
+    <H2>Supporters</H2>
+    <span>{donorsNb}</span>
+  </div>
+
+  <ul class='mt-8 flex flex-col gap-2'>
+    {
+      donors.map((donor) => (
+        <li class='flex gap-8 items-center py-4'>
+          <div class='h-10 w-10 rounded-full bg-gray-200 grid justify-center items-center'>
+            <p>JT</p>
+          </div>
+          <div class='flex flex-col gap-2'>
+            <p class='text-lg'>
+              {donor.first_name} {donor.last_name}
+            </p>
+            <p>
+              <span class='font-bold '>{donor.amount}$</span>
+              <span class='text-gray-500'> </span> 2 days ago
+            </p>
+          </div>
+        </li>
+      ))
+    }
+  </ul>
+</div>
