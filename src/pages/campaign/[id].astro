@@ -23,7 +23,7 @@ const campaign: Tables<'campaigns'> = await getJson(
       <CampaignQuestions {campaign} />
     </div>
 
-    <div class='flex-1'>
+    <div class='flex-1 shadow-xl border rounded'>
       <CampaignProgress {campaign} />
       <CampaignForm {campaign} />
       <CampaignDonors {campaign} />

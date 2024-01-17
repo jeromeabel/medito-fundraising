@@ -1,5 +1,7 @@
 ---
+import H3 from '@components/base/H3.astro';
 import type { Tables } from '@config/supabase.types.ts';
+import { Icon } from 'astro-icon/components';
 
 interface Props {
   campaign: Tables<'campaigns'>;
@@ -8,4 +10,37 @@ interface Props {
 const { campaign } = Astro.props;
 ---
 
-<div>...</div>
+<form
+  method='POST'
+  class='flex flex-col gap-4 my-8 max-w-[1000px] border-t p-8'
+>
+  <H3>I want to ..</H3>
+  <div class='flex flex-col gap-1'>
+    <label for='amount' class='text-gray-400 font-bold'>Funding amount *</label>
+    <input
+      class='p-2 bg-gray-200 rounded ring-2 focus:bg-gray-100 focus:outline-none ring-gray-300'
+      name='amount'
+      id='amount'
+      type='number'
+    />
+    <p aria-live='polite' class='h-6 text-red-500'></p>
+  </div>
+
+  <div class='flex flex-col gap-1'>
+    <label for='email' class='text-gray-400 font-bold'>Email *</label>
+    <input
+      class='p-2 bg-gray-200 rounded ring-2 focus:bg-gray-100 focus:outline-none ring-gray-300'
+      name='email'
+      id='email'
+      type='email'
+    />
+    <p aria-live='polite' class='h-6 text-red-500'></p>
+  </div>
+
+  <button
+    class='w-fit flex items-center gap-2 font-medium whitespace-nowrap px-2 group py-1 text-xl transition-all md:px-6 md:py-3 bg-green-500 text-white hover:bg-green-600 rounded-full'
+    type='submit'
+  >
+    <Icon class='h8' name='HeroiconsSolidHeart' />I support</button
+  >
+</form>
