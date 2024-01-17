@@ -18,17 +18,16 @@ const raised = donors.reduce(
   0
 );
 const daysLeft = 16;
-const raisedPercentage = Math.ceil((raised * 100) / campaign.goal);
+let raisedPercentage = 0;
+if (campaign.goal) {
+  raisedPercentage = Math.ceil((raised * 100) / campaign.goal);
+}
 // const raisedPercentage = 33;
-// const cssWidth = `w-[${raisedPercentage}%]`;
+// const cssWidth = `w-[${raisedPercentage}%]`;w
 // console.log(raisedPercentage);
 ---
 
 <div class='border p-8 flex flex-col gap-8'>
-  <astro-greet data-message={raisedPercentage}>
-    <button>Saluer!</button>
-  </astro-greet>
-
   <div>
     <div class='h-10 bg-gray-50 border relative'>
       <div id='progress' class='bg-green-500 h-full absolute left-0 z-10'></div>
@@ -53,21 +52,3 @@ const raisedPercentage = Math.ceil((raised * 100) / campaign.goal);
     <p>Days before end</p>
   </div>
 </div>
-
-<script>
-  const progressBar = document.getElementById('progress');
-
-  class AstroGreet extends HTMLElement {
-    constructor() {
-      super();
-      const message = this.dataset.message;
-      const button = this.querySelector('button');
-      button?.addEventListener('click', () => {
-        // alert(message);
-        progressBar?.classList.add(`w-[${message}%]`);
-      });
-    }
-  }
-
-  customElements.define('astro-greet', AstroGreet);
-</script>
