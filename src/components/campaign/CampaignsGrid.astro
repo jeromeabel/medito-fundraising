@@ -1,0 +1,14 @@
+---
+import type { Tables } from '@config/supabase.types.ts';
+import CampaignPreviewSmall from '@components/campaign/CampaignPreviewSmall.astro';
+
+interface Props {
+  campaigns: Tables<'campaigns'>[];
+}
+
+const { campaigns } = Astro.props;
+---
+
+<section class='grid my-16 gap-8 grid-cols-1 lg:grid-cols-2'>
+  {campaigns.map((campaign) => <CampaignPreviewSmall {campaign} />)}
+</section>

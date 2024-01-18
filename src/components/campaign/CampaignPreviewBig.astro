@@ -22,12 +22,16 @@ const imageSrc = `${campaign.image_link}?q=80&w=700&auto=format&fit=crop`;
       width={700}
       height={394}
       alt={campaign.title}
-      class='w-full object-cover'
+      class='w-full object-cover border-b border-gray-500'
     />
   </div>
   <div class='p-8'>
     <H2>{campaign.title}</H2>
     <p>{campaign.description}</p>
-    <p>Goal: {campaign.goal}$</p>
+    <p
+      class='mt-4 text-sm md:text-base px-3 py-1 bg-white text-gray-800 rounded max-w-fit'
+    >
+      Goal: {campaign.goal}$
+    </p>
   </div>
 </a>
