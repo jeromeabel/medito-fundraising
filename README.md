@@ -1,10 +1,11 @@
 # Medito Fundraising
 
-[![Astro](https://img.shields.io/badge/Astro-4.1-yellow)](https://astro.build/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.3-blue)](https://www.typescriptlang.org/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4-blue)](https://tailwindcss.com/)
-[![SupabaseJs](https://img.shields.io/badge/Supabase-2.39-green)](https://supabase.com/)
-[![Stripe](https://img.shields.io/badge/Stripe-14.12-blue)](https://tailwindcss.com/)
+[![Astro](https://img.shields.io/badge/Astro-4.1-BC52EE)](https://astro.build/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.3-3178C6)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4-38BDF8)](https://tailwindcss.com/)
+[![SupabaseJs](https://img.shields.io/badge/Supabase-2.39-3FCF8E)](https://supabase.com/)
+[![Stripe](https://img.shields.io/badge/Stripe-14.12-008CDD)](https://tailwindcss.com/)
+[![React](https://img.shields.io/badge/React-18.2-61DAFB)](https://react.dev/)
 
 I have 4 days to develop a Web App for the [Medito foundation](https://meditofoundation.org/).
 
@@ -45,17 +46,18 @@ Open the browser at the address: http://localhost:4321/
 ## 🧱 Features & Why I Choose This Stack
 
 - **Astro** is an agnostic framework, it offers a great choice for build a **versatile website**. Some pages might be static, server side or client side. You can use all great UI libs as React, Svelte or Vue.
-- **Tailwind CSS**: All design is made with Tailwind as it provides great features and it is very popular.
+- **Tailwind CSS**: All design is made with Tailwind. It provides great features and it is very popular.
 - **Static Blog Posts With Astro**: Some pages are static built by astro from .md files.
-- **Campaigns Data With Supabase**: I choose to **Supabase** to host fake data, with three tables: campaigns, donors, questions
-- **API endpoints With Astro**: I built API endpoints in Astro thanks to the cloudflare integration adpater:
+- **Campaigns Data With Supabase**: I choose **Supabase** to host fake data into three tables: campaigns, donors, questions
+- **API endpoints With Astro**: I create 6 API endpoints in Astro thanks to the **cloudflare adapter** :
   - `/api/campaigns`: Get all campaigns
   - `/api/campaign/:id`: Get one campaign with its id
   - `/api/campaign/:id/donors`: Get all donors for the campaign
   - `/api/campaign/:id/questions`: Get all questions for the campaign
   - `/api/campaign/:id/donate`: Send a request to Stripe
-  - `/api/session/:id/`: Get the session data from Stripe session
-- **💳 Payment With Stripe**: You have to fill "4242 4242 4242 4242" as a test card number to test the transaction. You would be redirected to the "thanks" page when the transaction is fullfilled.
+  - `/api/session/:id/`: Get the session data from the validated Stripe session
+- **💳 Payment With Stripe Checkout Form**: You have to fill "4242 4242 4242 4242" as a test card number to test the transaction. You would be redirected to the "thanks" page when the transaction is fullfilled.
+- **React**: It is used for some more interactive components, CampaignProgress, Dropdown, CampaignDonors. The data are updated every 30s.
 
 ![Screenshot of the Website](./campaign.jpg)
 
@@ -63,10 +65,13 @@ Open the browser at the address: http://localhost:4321/
 
 - User Stories: [Kanban](https://github.com/users/jeromeabel/projects/6/views/1)
 
-## ⏳ Future Thoughts
+## ⏳ Future Improvements
 
 - Rewards animations (confetti)
+- Improve responsive layout for the campaign page
 - Responsive menu
+- Add rewards
+- Add some Toast feedbacks
 - Update donors data with the transaction
 - Update blog content with a headless CMS
 - Handle progress bar when the goal is reached : 100%
