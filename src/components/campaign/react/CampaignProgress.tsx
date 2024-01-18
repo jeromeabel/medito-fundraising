@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
 import type { Tables } from '@config/supabase.types.ts';
-import { getJson } from '@services/fetchAPI';
 
 type CampaignProgressProps = {
   campaign: Tables<'campaigns'>;
 };
+
+const INTERVAL_RATE = 30000;
 
 const CampaignProgress = ({ campaign }: CampaignProgressProps) => {
   const [donors, setDonors] = useState<Tables<'donors'>[]>([]);
@@ -12,23 +13,31 @@ const CampaignProgress = ({ campaign }: CampaignProgressProps) => {
   const [percent, setPercent] = useState(0);
 
   useEffect(() => {
-    fetch(`/api/campaign/${campaign.id}/donors`)
-      .then((response) => response.json())
-      .then((data) => {
-        setDonors(data);
-        const raised = data.reduce(
-          (sum: number, donor: Tables<'donors'>) => (sum += donor.amount || 0),
-          0
-        );
-        setAmountRaised(raised);
-        const raisedPercentage = Math.ceil(
-          (raised / (campaign.goal || 0)) * 100
-        );
-        setPercent(raisedPercentage);
-      })
-      .catch((err) => {
-        console.log(err.message);
-      });
+    const getData = () => {
+      fetch(`/api/campaign/${campaign.id}/donors`)
+        .then((response) => response.json())
+        .then((data) => {
+          setDonors(data);
+          const raised = data.reduce(
+            (sum: number, donor: Tables<'donors'>) =>
+              (sum += donor.amount || 0),
+            0
+          );
+          setAmountRaised(raised);
+          const raisedPercentage = Math.ceil(
+            (raised / (campaign.goal || 0)) * 100
+          );
+          setPercent(raisedPercentage);
+        })
+        .catch((err) => {
+          console.log(err.message);
+        });
+    };
+
+    getData();
+
+    const interval = setInterval(getData, INTERVAL_RATE);
+    return () => clearInterval(interval);
   }, [campaign]);
 
   const daysLeft = Math.floor(Math.random() * 20 + 10);
