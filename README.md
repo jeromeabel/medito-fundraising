@@ -44,30 +44,20 @@ Open the browser at the address: http://localhost:4321/
 
 ## 🧱 Features & Why I Choose This Stack
 
-**Astro**
-Astro is an agnostic framework, it offers a great choice for build a **versatile website**. Some pages might be static, server side or client side. You can use all great UI libs as React, Svelte or Vue.
+- **Astro** is an agnostic framework, it offers a great choice for build a **versatile website**. Some pages might be static, server side or client side. You can use all great UI libs as React, Svelte or Vue.
+- **Tailwind CSS**: All design is made with Tailwind as it provides great features and it is very popular.
+- **Static Blog Posts With Astro**: Some pages are static built by astro from .md files.
+- **Campaigns Data With Supabase**: I choose to **Supabase** to host fake data, with three tables: campaigns, donors, questions
+- **API endpoints With Astro**: I built API endpoints in Astro thanks to the cloudflare integration adpater:
+  - `/api/campaigns`: Get all campaigns
+  - `/api/campaign/:id`: Get one campaign with its id
+  - `/api/campaign/:id/donors`: Get all donors for the campaign
+  - `/api/campaign/:id/questions`: Get all questions for the campaign
+  - `/api/campaign/:id/donate`: Send a request to Stripe
+  - `/api/session/:id/`: Get the session data from Stripe session
+- **💳 Payment With Stripe**: You have to fill "4242 4242 4242 4242" as a test card number to test the transaction. You would be redirected to the "thanks" page when the transaction is fullfilled.
 
-**Tailwind CSS**
-All design is made with Tailwind as it provides great features and it is very popular.
-
-**Static Blog Posts With Astro**
-Some page are static built by astro from .md files.
-
-**Campaigns Data With Supabase**
-I choose to **Supabase** to host fake data, with three tables: campaigns, donors, questions
-
-**API endpoints With Astro**
-I built API endpoints in Astro thanks to the cloudflare integration adpater:
-
-- `/api/campaigns`: Get all campaigns
-- `/api/campaign/:id`: Get one campaign with its id
-- `/api/campaign/:id/donors`: Get all donors for the campaign
-- `/api/campaign/:id/questions`: Get all questions for the campaign
-- `/api/campaign/:id/donate`: Send a request to Stripe
-- `/api/session/:id/`: Get the session data from Stripe session
-
-**💳 Payment With Stripe**
-You have to fill "4242 4242 4242 4242" as a test card number to test the transaction. You would be redirected to the "thanks" page when the transaction is fullfilled.
+![Screenshot of the Website](./campaign.jpg)
 
 ## 📝 Documentation
 
