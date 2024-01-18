@@ -4,7 +4,7 @@ import Stripe from 'stripe';
 
 const stripe = new Stripe(`${import.meta.env.STRIPE_PRIVATE_KEY}`);
 
-export const POST: APIRoute = async ({ params, request }: APIContext) => {
+export const POST: APIRoute = async ({ request }: APIContext) => {
   const requestURL = new URL(request.url);
   const host = requestURL.host;
   const protocol = requestURL.protocol;
