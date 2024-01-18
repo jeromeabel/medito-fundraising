@@ -12,6 +12,7 @@ const { campaign } = Astro.props;
 
 <form
   method='POST'
+  action={`/api/campaign/${campaign.id}/donate`}
   class='flex flex-col gap-4 my-8 max-w-[1000px] border-t p-8'
 >
   <H3>I want to ..</H3>

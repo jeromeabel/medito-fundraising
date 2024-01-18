@@ -14,7 +14,6 @@ import Link from '@components/links/Link.astro';
 const campaigns: Tables<'campaigns'>[] = await getJson(
   `${Astro.url.origin}/api/campaigns`
 );
-
 const posts = await getCollection('blog');
 ---
 

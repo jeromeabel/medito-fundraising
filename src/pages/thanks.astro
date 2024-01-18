@@ -1,0 +1,10 @@
+---
+import Layout from '@layouts/Layout.astro';
+import H1 from '@components/base/H1.astro';
+import CampaignReturn from '@components/campaign/react/CampaignReturn.jsx';
+---
+
+<Layout>
+  <H1>Thank You!</H1>
+  <CampaignReturn client:only='react' />
+</Layout>
