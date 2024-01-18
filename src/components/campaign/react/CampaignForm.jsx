@@ -10,9 +10,10 @@ const stripePromise = loadStripe(import.meta.env.PUBLIC_STRIPE_KEY);
 
 const CampaignForm = () => {
   const [clientSecret, setClientSecret] = useState('');
+  const originURL = window.location.origin;
 
   useEffect(() => {
-    fetch('/api/campaign/1/donate', {
+    fetch(`${originURL}/api/campaign/1/donate`, {
       method: 'POST',
     })
       .then((res) => res.json())

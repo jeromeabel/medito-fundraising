@@ -10,14 +10,15 @@ const CampaignReturn = () => {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     const sessionId = urlParams.get('session_id');
+    const originURL = window.location.origin;
 
-    fetch(`/api/session/${sessionId}`)
+    fetch(`${originURL}/api/session/${sessionId}`)
       .then((res) => res.json())
       .then((data) => {
         setStatus(data.status);
         setCustomerEmail(data.customer_email);
         setCustomerName(data.customer_name);
-        setAmount(data.amount);
+        setAmount(Math.floor(data.amount / 100));
       });
   }, []);
 

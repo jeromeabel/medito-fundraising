@@ -19,7 +19,7 @@ export const POST: APIRoute = async ({ params, request }: APIContext) => {
     ],
     payment_method_types: ['card'],
     mode: 'payment',
-    return_url: `${protocol}://${host}/thanks?session_id={CHECKOUT_SESSION_ID}`,
+    return_url: `${protocol}//${host}/thanks?session_id={CHECKOUT_SESSION_ID}`,
   });
 
   return new Response(JSON.stringify({ clientSecret: session.client_secret }), {
