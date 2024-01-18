@@ -4,8 +4,6 @@ import { Image } from 'astro:assets';
 import type { Tables } from '@config/supabase.types.ts';
 
 import H1 from '@components/base/H1.astro';
-import Section from '@components/base/Section.astro';
-import H2 from '@components/base/H2.astro';
 
 interface Props {
   campaign: Tables<'campaigns'>;
@@ -41,33 +39,3 @@ const dateISOString = new Date(campaign.created_at).toLocaleDateString(
     Created at: <span class='text-gray-600'>{dateISOString}</span>
   </p>
 </div>
-
-<Section>
-  <H2>Story</H2>
-  <div class='prose prose-lg'>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos deserunt
-      possimus quaerat porro harum dicta libero vero molestias rem. Quae,
-      ratione! Alias mollitia architecto fugiat natus earum minima repellat
-      excepturi.
-    </p>
-    <p>
-      Quos inventore, suscipit eligendi nihil ipsa atque aperiam quidem sapiente
-      iure dolorem iusto obcaecati, molestiae laborum architecto eveniet dolores
-      voluptas sint voluptates, impedit repudiandae quisquam! Soluta illum alias
-      excepturi officiis.
-    </p>
-    <p>
-      Eius provident totam perspiciatis aliquam minima laborum natus commodi
-      modi quos esse, doloremque odio aperiam! Cupiditate quae adipisci, nobis
-      doloremque necessitatibus quos voluptatum minima. Veritatis quam
-      temporibus unde illum deleniti.
-    </p>
-    <p>
-      Quibusdam distinctio nesciunt ab numquam molestias inventore et ipsam quae
-      consectetur architecto sunt est id, suscipit reiciendis minima. Ut,
-      architecto perferendis! Sit quas, porro illum eaque dolore impedit
-      necessitatibus! Eveniet.
-    </p>
-  </div>
-</Section>

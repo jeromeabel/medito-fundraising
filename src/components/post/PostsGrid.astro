@@ -9,9 +9,9 @@ export type Props = {
 const { posts, limit = 20 } = Astro.props;
 ---
 
-<section class=' grid my-16 gap-16 grid-cols-3'>
+<section class='grid my-16 gap-16 grid-cols-1 lg:grid-cols-3'>
   {
-    posts.slice(0,limit).map((post) => (
+    posts.slice(0, limit).map((post) => (
       <a
         class='text-lg border-s p-8 hover:bg-gray-100'
         href={`/blog/${post.slug}`}
@@ -22,5 +22,5 @@ const { posts, limit = 20 } = Astro.props;
         </p>
       </a>
     ))
-    }
+  }
 </section>

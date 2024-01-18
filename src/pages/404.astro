@@ -1,10 +1,25 @@
 ---
 import H1 from '@components/base/H1.astro';
 import Layout from '@layouts/Layout.astro';
+import img404 from '@assets/images/404.jpg';
+import { Image } from 'astro:assets';
+import CTALink from '@components/links/CTALink.astro';
 
 export const prerender = true;
 ---
 
 <Layout title='Not Found'>
-  <H1>Error 404</H1>
+  <div class='relative grid items-center h-[500px] overflow-hidden'>
+    <Image
+      src={img404}
+      alt=''
+      aria-hidden='true'
+      loading='eager'
+      class='absolute inset-0 -z-10 h-full object-cover opacity-80 md:opacity-100'
+    />
+    <div class='text-white p-16 flex flex-col gap-8'>
+      <H1>Oups!</H1>
+      <CTALink label='Return to home' href='/' icon='CarbonArrowRight' />
+    </div>
+  </div>
 </Layout>

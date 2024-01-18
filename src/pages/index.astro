@@ -20,7 +20,6 @@ const posts = await getCollection('blog');
 <Layout>
   <Hero />
   <CampaignsPreview {campaigns} />
-
   <Section>
     <H2>Latest Blog Posts</H2>
     <PostsGrid {posts} limit={3} />

@@ -18,13 +18,13 @@ const firstCampaign: Tables<'campaigns'> = campaigns.splice(3).splice(0, 1)[0];
 
 <Section>
   <H2>Current campaigns</H2>
-  <div class='flex gap-8 mt-8'>
+  <div class='flex flex-col xl:flex-row gap-8 mt-8'>
     <CampaignPreviewBig campaign={firstCampaign} />
-    <div class='flex-1 flex flex-col justify-between border-s ps-8'>
+    <div class='flex-1 flex flex-col justify-between xl:border-s xl:ps-8'>
       <div class='flex flex-col gap-3'>
         {campaigns.map((campaign) => <CampaignPreviewSmall {campaign} />)}
       </div>
-      <div>
+      <div class='mt-8'>
         <Link href='/campaign'>See all campaigns ⇢</Link>
       </div>
     </div>
