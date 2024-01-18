@@ -1,7 +1,7 @@
 {
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
-    "baseUrl": ".",
+    "baseUrl": "/home/jr/dev/projects/medito-fundraising/medito-fundraising",
     "paths": {
       "@components/*": ["src/components/*"],
       "@layouts/*": ["src/layouts/*"],
@@ -10,6 +10,8 @@
       "@utils/*": ["src/utils/*"],
       "@config/*": ["src/config/*"],
       "@services/*": ["src/services/*"]
-    }
+    },
+    "jsx": "react-jsx",
+    "jsxImportSource": "react"
   }
 }
