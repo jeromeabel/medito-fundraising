@@ -2,7 +2,7 @@ import type { APIRoute, APIContext } from 'astro';
 
 import Stripe from 'stripe';
 
-const stripe = new Stripe(import.meta.env.STRIPE_PRIVATE_KEY);
+const stripe = new Stripe(`${import.meta.env.STRIPE_PRIVATE_KEY}`);
 
 export const POST: APIRoute = async ({ params, request }: APIContext) => {
   const requestURL = new URL(request.url);

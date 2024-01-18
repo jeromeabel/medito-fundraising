@@ -1,7 +1,7 @@
 import type { APIRoute } from 'astro';
 import Stripe from 'stripe';
 
-const stripe = new Stripe(import.meta.env.STRIPE_PRIVATE_KEY);
+const stripe = new Stripe(`${import.meta.env.STRIPE_PRIVATE_KEY}`);
 
 export const GET: APIRoute = async ({ params }) => {
   const sessionId = params.id || '';
