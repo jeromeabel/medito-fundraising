@@ -6,7 +6,7 @@ import {
   EmbeddedCheckout,
 } from '@stripe/react-stripe-js';
 
-const stripePromise = loadStripe(import.meta.env.PUBLIC_STRIPE_KEY);
+const stripePromise = loadStripe(`${import.meta.env.PUBLIC_STRIPE_KEY}`);
 
 const CampaignForm = () => {
   const [clientSecret, setClientSecret] = useState('');
