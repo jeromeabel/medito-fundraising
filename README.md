@@ -49,4 +49,5 @@ Open the browser at the address: http://localhost:4321/
 ## Credits
 
 - The Hero image from [unplash/Ashley Batz](https://unsplash.com/fr/photos/personne-marchant-sur-la-plage-pendant-la-journee-betmVWGYcLY)
+- The 404 image from [unplash/Tim Goedhart](https://unsplash.com/fr/photos/enseignes-au-neon-breathe-vnpTRdmtQ30)
 - All images from unsplash.com
