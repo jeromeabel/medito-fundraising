@@ -5,7 +5,8 @@ import { getJson } from '@services/fetchAPI';
 import Layout from '@layouts/Layout.astro';
 import CampaignDetails from '@components/campaign/CampaignDetails.astro';
 import CampaignQuestions from '@components/campaign/CampaignQuestions.astro';
-import CampaignProgress from '@components/campaign/CampaignProgress.astro';
+// import CampaignProgress from '@components/campaign/CampaignProgress.astro';
+import CampaignProgress from '@components/campaign/react/CampaignProgress.tsx';
 import CampaignDonors from '@components/campaign/CampaignDonors.astro';
 import CampaignForm from '@components/campaign/CampaignForm.astro';
 
@@ -24,7 +25,7 @@ const campaign: Tables<'campaigns'> = await getJson(
     </div>
 
     <div class='flex-1 shadow-xl border rounded'>
-      <CampaignProgress {campaign} />
+      <CampaignProgress client:only='react' {campaign} />
       <CampaignForm {campaign} />
       <CampaignDonors {campaign} />
     </div>
