@@ -106,6 +106,30 @@ export interface Database {
           }
         ]
       }
+      rewards: {
+        Row: {
+          description: string | null
+          id: number
+          level: number | null
+          name: string | null
+          value: number | null
+        }
+        Insert: {
+          description?: string | null
+          id?: number
+          level?: number | null
+          name?: string | null
+          value?: number | null
+        }
+        Update: {
+          description?: string | null
+          id?: number
+          level?: number | null
+          name?: string | null
+          value?: number | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
