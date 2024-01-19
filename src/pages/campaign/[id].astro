@@ -9,6 +9,7 @@ import CampaignProgress from '@components/campaign/react/CampaignProgress.tsx';
 import CampaignDonors from '@components/campaign/CampaignDonors.astro';
 import CampaignForm from '@components/campaign/react/CampaignForm.jsx';
 import CampaignStory from '@components/campaign/CampaignStory.astro';
+import CampaignRewards from '@components/campaign/CampaignRewards.astro';
 
 const { id } = Astro.params;
 
@@ -24,7 +25,10 @@ const campaign: Tables<'campaigns'> = await getJson(
         <CampaignDetails {campaign} />
       </div>
       <div class='order-4'><CampaignStory /></div>
-      <div class='order-5'><CampaignQuestions {campaign} /></div>
+      <div class='order-5'>
+        <CampaignRewards />
+        <CampaignQuestions {campaign} />
+      </div>
     </div>
     <div class='contents md:grid md:grid-cols-1 border rounded shadow-xl'>
       <div

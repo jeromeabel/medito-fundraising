@@ -46,3 +46,30 @@ export const FOOTER = [
     items: ['Twitter', 'Facebook', 'Instagram'],
   },
 ];
+
+export const REWARDS = [
+  {
+    name: 'Gratitude Wall Recognition',
+    description:
+      "Leave your mark on the Medito Foundation's Gratitude Wall, a special section on our website dedicated to honoring our generous supporters.",
+    value: '5',
+  },
+  {
+    name: 'Mindfulness Mastery Pack',
+    description:
+      'Unlock exclusive access to a curated collection of guided meditation sessions, mindfulness challenges, and advanced techniques.',
+    value: '25',
+  },
+  {
+    name: 'Exclusive Medito Bundle',
+    description:
+      'Receive a specially designed merchandise bundle featuring Medito Foundation-branded items, including a cozy meditation blanket, a high-quality meditation cushion, and a personalized thank-you card.',
+    value: '60',
+  },
+  {
+    name: 'Meditation Retreat Experience',
+    description:
+      'Embark on a transformative weekend meditation retreat at a serene location. Immerse yourself in a peaceful environment, guided by experienced meditation instructors.',
+    value: '150',
+  },
+];
