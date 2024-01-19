@@ -67,19 +67,19 @@ Open the browser at the address: http://localhost:4321/
 
 ## ⏳ Future Improvements
 
-- Rewards animations (confetti)
-- Improve responsive layout for the campaign page
-- Responsive menu
-- Add rewards
-- Add some Toast feedbacks
-- Update donors data with the transaction
-- Update blog content with a headless CMS
-- Handle progress bar when the goal is reached : 100%
-- Clean code: error boundaries, refactoring API calls
-- Optimization: loading states, suspense
+- [ ] Rewards animations (confetti)
+- [ ] Responsive menu
+- [ ] Add rewards
+- [ ] Add some Toast feedbacks
+- [ ] Update donors data with the transaction
+- [ ] Update blog content with a headless CMS
+- [ ] Handle progress bar when the goal is reached : 100%
+- [ ] Clean code: error boundaries, refactoring API calls
+- [ ] Optimization: loading states, suspense
 
-## Credits
+## Credits & Thanks
 
+- Thanks to [Florian Lefebvre](https://github.com/florian-lefebvre) for this help with the responsive layout of the campaign page: [tailwindplay](https://play.tailwindcss.com/sDaxr4kLbE?size=572x)
 - The Hero image from [unplash/Ashley Batz](https://unsplash.com/fr/photos/personne-marchant-sur-la-plage-pendant-la-journee-betmVWGYcLY)
 - The 404 image from [unplash/Tim Goedhart](https://unsplash.com/fr/photos/enseignes-au-neon-breathe-vnpTRdmtQ30)
 - All images from unsplash.com
