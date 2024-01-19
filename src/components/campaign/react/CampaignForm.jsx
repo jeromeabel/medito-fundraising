@@ -21,7 +21,7 @@ const CampaignForm = () => {
   }, []);
 
   return (
-    <div id='checkout' className='bg-gray-100 py-8 border-t'>
+    <div id='checkout' className='bg-gray-100 h-[760px]'>
       {clientSecret && (
         <EmbeddedCheckoutProvider
           stripe={stripePromise}

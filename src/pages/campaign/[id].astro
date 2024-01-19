@@ -18,17 +18,26 @@ const campaign: Tables<'campaigns'> = await getJson(
 ---
 
 <Layout title={campaign.title || 'Campaign'}>
-  <div class='flex flex-col lg:flex-row gap-8'>
-    <div>
-      <CampaignDetails {campaign} />
-      <CampaignStory />
-      <CampaignQuestions {campaign} />
+  <div class='grid md:gap-4 md:grid-cols-2 lg:grid-cols-3 xl:gap-8'>
+    <div class='contents md:grid md:grid-cols-1 lg:col-span-2'>
+      <div class='order-1 mb-8 md:mb-0'>
+        <CampaignDetails {campaign} />
+      </div>
+      <div class='order-4'><CampaignStory /></div>
+      <div class='order-5'><CampaignQuestions {campaign} /></div>
     </div>
-
-    <div class='w-full lg:w-1/2 shadow-xl border rounded'>
-      <CampaignProgress client:only='react' {campaign} />
-      <CampaignForm client:only='react' />
-      <CampaignDonors {campaign} />
+    <div class='contents md:grid md:grid-cols-1 border rounded shadow-xl'>
+      <div
+        class='order-2 shadow-xl md:shadow-none border-t border-s border-e md:border-none'
+      >
+        <CampaignProgress {campaign} client:only='react' />
+      </div>
+      <div class='order-3 shadow-xl md:shadow-none border md:border-none'>
+        <CampaignForm client:only='react' />
+      </div>
+      <div class='order-6 shadow-xl md:shadow-none border md:border-none'>
+        <CampaignDonors {campaign} />
+      </div>
     </div>
   </div>
 </Layout>
