@@ -2,6 +2,7 @@
 import Container from '@components/base/Container.astro';
 import { FOOTER } from '@config/site';
 import H3 from './H3.astro';
+import { Icon } from 'astro-icon/components';
 ---
 
 <footer class='bg-black text-white py-20'>
@@ -14,7 +15,7 @@ import H3 from './H3.astro';
           return (
             <div>
               <H3>{menu.title}</H3>
-              <ul class='flex flex-col gap-2 mt-3'>
+              <ul class='flex flex-col gap-1 mt-3'>
                 {menu.items.map((item) => (
                   <li>{item}</li>
                 ))}
@@ -30,5 +31,28 @@ import H3 from './H3.astro';
       adipisci sunt est id ipsa quam, hic ex, doloremque autem possimus sit aut
       maxime natus quidem, tempore magnam a officia assumenda.
     </p>
+
+    <div class='mt-12 text-gray-400 text-center'>
+      <p>
+        Made with <Icon
+          name='HeroiconsSolidHeart'
+          class='h-6 inline text-red-500 animate-pulse'
+        /> by
+        <a href='https://dev.jeromeabel.net' class='hover:text-white underline'
+          >J&eacute;r&ocirc;me Abel</a
+        >
+        - <a
+          href='https://github.com/jeromeabel/medito-fundraising'
+          class='hover:text-white underline'>Source Code</a
+        >
+      </p>
+
+      <p>
+        Images credits: <a
+          href='https://unplash.com'
+          class='hover:text-white underline'>unplash.com</a
+        >
+      </p>
+    </div>
   </Container>
 </footer>
