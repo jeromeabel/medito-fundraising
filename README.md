@@ -69,7 +69,6 @@ Open the browser at the address: http://localhost:4321/
 
 - [ ] Rewards animations (confetti)
 - [ ] Responsive menu
-- [ ] Add rewards
 - [ ] Add some Toast feedbacks
 - [ ] Update donors data with the transaction
 - [ ] Update blog content with a headless CMS

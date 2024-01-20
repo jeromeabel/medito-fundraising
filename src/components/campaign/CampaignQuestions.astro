@@ -16,13 +16,15 @@ const questions: Tables<'questions'>[] = await getJson(
 );
 ---
 
-<Section>
-  <H2>Q&A</H2>
-  <div class='flex flex-col gap-4 mt-4'>
-    {
-      questions?.map(({ title, content }) => (
-        <Dropdown client:only='react' {title} {content} />
-      ))
-    }
-  </div>
-</Section>
+<div class='w-full lg:w-2/3'>
+  <Section>
+    <H2>Q&A</H2>
+    <div class='flex flex-col gap-4 mt-4'>
+      {
+        questions?.map(({ title, content }) => (
+          <Dropdown client:only='react' {title} {content} />
+        ))
+      }
+    </div>
+  </Section>
+</div>
