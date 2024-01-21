@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useState, useEffect, useLayoutEffect } from 'react';
 import { useReward } from 'react-rewards';
 
 const CampaignReturn = () => {
@@ -7,7 +7,7 @@ const CampaignReturn = () => {
   const [customerName, setCustomerName] = useState('');
   const [amount, setAmount] = useState(0);
 
-  const { reward, isAnimating } = useReward('rewardId', 'confetti', {
+  const { reward } = useReward('rewardId', 'confetti', {
     elementCount: 200,
     lifetime: 500,
     elementSize: 10,
@@ -22,16 +22,27 @@ const CampaignReturn = () => {
     const sessionId = urlParams.get('session_id');
     const originURL = window.location.origin;
 
-    fetch(`${originURL}/api/session/${sessionId}`)
-      .then((res) => res.json())
-      .then((data) => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(`${originURL}/api/session/${sessionId}`);
+        const data = await response.json();
         setStatus(data.status);
         setCustomerEmail(data.customer_email);
         setCustomerName(data.customer_name);
         setAmount(Math.floor(data.amount / 100));
-        reward();
-      });
+      } catch (error) {
+        console.error('Error while retrieving data:', error);
+      }
+    };
+
+    fetchData();
   }, []);
+
+  useLayoutEffect(() => {
+    if (status === 'complete') {
+      reward();
+    }
+  }, [status, reward]);
 
   if (status === 'open') {
     return <p>OPEN</p>;
@@ -40,8 +51,9 @@ const CampaignReturn = () => {
   if (status === 'complete') {
     return (
       <section className='prose prose-lg pt-8'>
-        <p id={'rewardId'}>
-          Thank you <strong>{customerName}</strong> for your {amount}$!
+        <p>
+          Thank you <strong>{customerName}</strong> for your {amount}$!{' '}
+          <span id='rewardId' />
         </p>
         <p>
           We appreciate your support. A confirmation email will be sent to{' '}
