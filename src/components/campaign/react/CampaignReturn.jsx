@@ -1,10 +1,20 @@
 import { useEffect, useState } from 'react';
+import { useReward } from 'react-rewards';
 
 const CampaignReturn = () => {
   const [status, setStatus] = useState(null);
   const [customerEmail, setCustomerEmail] = useState('');
   const [customerName, setCustomerName] = useState('');
   const [amount, setAmount] = useState(0);
+
+  const { reward, isAnimating } = useReward('rewardId', 'confetti', {
+    elementCount: 200,
+    lifetime: 500,
+    elementSize: 10,
+    startVelocity: 20,
+    angle: 70,
+    spread: 150,
+  });
 
   useEffect(() => {
     const queryString = window.location.search;
@@ -19,6 +29,7 @@ const CampaignReturn = () => {
         setCustomerEmail(data.customer_email);
         setCustomerName(data.customer_name);
         setAmount(Math.floor(data.amount / 100));
+        reward();
       });
   }, []);
 
@@ -28,8 +39,8 @@ const CampaignReturn = () => {
 
   if (status === 'complete') {
     return (
-      <section id='success' className='prose prose-lg pt-8'>
-        <p>
+      <section className='prose prose-lg pt-8'>
+        <p id={'rewardId'}>
           Thank you <strong>{customerName}</strong> for your {amount}$!
         </p>
         <p>
