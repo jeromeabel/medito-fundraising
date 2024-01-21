@@ -42,7 +42,7 @@ const CampaignReturn = () => {
     if (status === 'complete') {
       reward();
     }
-  }, [status, reward]);
+  }, [status]);
 
   if (status === 'open') {
     return <p>OPEN</p>;
