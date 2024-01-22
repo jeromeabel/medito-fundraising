@@ -5,7 +5,7 @@ import H3 from './H3.astro';
 import { Icon } from 'astro-icon/components';
 ---
 
-<footer class='bg-black text-white py-20'>
+<footer class='bg-black text-white p-16 pt-24'>
   <Container>
     <div class='grid grid-cols-2 gap-8 lg:grid-cols-4 pb-8 text-gray-300'>
       {
@@ -24,32 +24,35 @@ import { Icon } from 'astro-icon/components';
       }
     </div>
 
-    <p class='py-8 max-w-xl text-gray-400'>
+    <p class='py-8 text-sm max-w-xl text-gray-400'>
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur
       adipisci sunt est id ipsa quam, hic ex, doloremque autem possimus sit aut
       maxime natus quidem, tempore magnam a officia assumenda.
     </p>
-  </Container>
-  <div class='text-gray-400 text-center border-t border-gray-700 py-8'>
-    <p>
-      Made with <Icon
-        name='HeroiconsSolidHeart'
-        class='h-6 inline text-red-500 animate-pulse'
-      /> by
-      <a href='https://dev.jeromeabel.net' class='hover:text-white underline'
-        >J&eacute;r&ocirc;me Abel</a
-      >
-      - <a
-        href='https://github.com/jeromeabel/medito-fundraising'
-        class='hover:text-white underline'>Source Code</a
-      >
-    </p>
 
-    <p>
-      Images credits: <a
-        href='https://unplash.com'
-        class='hover:text-white underline'>unplash.com</a
-      >
-    </p>
-  </div>
+    <div
+      class='text-gray-400 text-sm text-center border-t border-gray-700 pt-8'
+    >
+      <p>
+        Made with <Icon
+          name='HeroiconsSolidHeart'
+          class='h-6 inline text-red-500 animate-pulse'
+        /> by
+        <a href='https://dev.jeromeabel.net' class='hover:text-white underline'
+          >J&eacute;r&ocirc;me Abel</a
+        >
+        - <a
+          href='https://github.com/jeromeabel/medito-fundraising'
+          class='hover:text-white underline'>Source Code</a
+        >
+      </p>
+
+      <p>
+        Images credits: <a
+          href='https://unplash.com'
+          class='hover:text-white underline'>unplash.com</a
+        >
+      </p>
+    </div>
+  </Container>
 </footer>
