@@ -67,10 +67,10 @@ Open the browser at the address: http://localhost:4321/
 
 ## ⏳ Future Improvements
 
-- [ ] Rewards animations (confetti)
+- [x] Rewards animations (confetti)
 - [ ] Responsive menu
 - [ ] Add some Toast feedbacks
-- [ ] Update donors data with the transaction
+- [x] Update donors data with the transaction
 - [ ] Update blog content with a headless CMS
 - [ ] Handle progress bar when the goal is reached : 100%
 - [ ] Clean code: error boundaries, refactoring API calls
