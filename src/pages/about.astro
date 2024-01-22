@@ -1,9 +1,30 @@
 ---
+import { getJson } from '@services/fetchAPI';
+import type { Tables } from '@config/supabase.types.ts';
+
 import H1 from '@components/base/H1.astro';
 import H2 from '@components/base/H2.astro';
 import Layout from '@layouts/Layout.astro';
+import CTALink from '@components/links/CTALink.astro';
 
-export const prerender = true;
+const campaigns: Tables<'campaigns'>[] = await getJson(
+  `${Astro.url.origin}/api/campaigns`
+);
+const donors: Tables<'donors'>[] = await getJson(
+  `${Astro.url.origin}/api/donors`
+);
+
+const totalAmountRaised = donors.reduce(
+  (sum, donor) => (sum += donor.amount || 0),
+  0
+);
+
+const totalGoal = campaigns.reduce(
+  (sum, campaign) => (sum += campaign.goal || 0),
+  0
+);
+
+const percentRaised = Math.floor((totalAmountRaised * 100) / totalGoal);
 ---
 
 <Layout title='About'>
@@ -47,15 +68,29 @@ export const prerender = true;
         </p>
       </li>
     </ul>
-    <H2 id='current-progress'>Current Progress</H2>
-    <p>
-      [Progress Bar]<br />
-      $[Amount Raised] of $[Total Goal] raised so far.
-    </p>
+
+    <div class='p-6 border-t border-b'>
+      <p class='text-center'>
+        <strong>${totalAmountRaised}</strong> of <strong>${totalGoal}</strong> raised
+        so far.
+      </p>
+      <div class='bg-gray-200 h-2 rounded-full mt-2'>
+        <div
+          class='bg-green-500 h-full rounded-full'
+          style=`width:${percentRaised}%`
+        >
+        </div>
+      </div>
+      <p class='text-center text-green-500 mt-2'>{percentRaised}% Complete</p>
+    </div>
     <p>
       Join us on this meditative journey and contribute to building a more
       mindful and connected community.
     </p>
-    <p>[<strong>Make a Donation Now</strong>]</p>
+    <CTALink
+      label='Make a Donation Now'
+      href='/campaign'
+      icon='CarbonArrowRight'
+    />
   </div>
 </Layout>
