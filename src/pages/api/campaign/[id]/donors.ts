@@ -7,7 +7,8 @@ export const GET: APIRoute = async ({ params }) => {
   const { data } = await supabase
     .from('donors')
     .select('*')
-    .eq('campaign_id', Number(campaignId));
+    .eq('campaign_id', Number(campaignId))
+    .order('created_at', { ascending: false });
 
   if (!data) {
     return new Response(null, {
