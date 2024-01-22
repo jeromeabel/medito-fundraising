@@ -13,6 +13,16 @@ const donors: Tables<'donors'>[] = await getJson(
 );
 
 const donorsNb = donors.length;
+
+function calculateDaysFromDate(givenDate: string): number {
+  const providedDate = new Date(givenDate);
+  const today = new Date();
+  const differenceInMilliseconds = today.getTime() - providedDate.getTime();
+  const differenceInDays = Math.floor(
+    differenceInMilliseconds / (1000 * 60 * 60 * 24)
+  );
+  return differenceInDays;
+}
 ---
 
 <div class='p-8'>
@@ -25,8 +35,11 @@ const donorsNb = donors.length;
     {
       donors.map((donor) => (
         <li class='flex gap-8 items-center py-4'>
-          <div class='h-10 w-10 rounded-full bg-gray-200 grid justify-center items-center'>
-            <p>JT</p>
+          <div class='h-12 w-12 tracking-tighter rounded-full bg-gray-200 grid justify-center items-center uppercase'>
+            <p>
+              {donor.first_name?.charAt(0)}
+              {donor.last_name?.charAt(0)}
+            </p>
           </div>
           <div class='flex flex-col gap-2'>
             <p class='text-lg'>
@@ -34,7 +47,10 @@ const donorsNb = donors.length;
             </p>
             <p>
               <span class='font-bold '>{donor.amount}$</span>
-              <span class='text-gray-500'> </span> 2 days ago
+              <span class='text-gray-400'>•</span>{' '}
+              {calculateDaysFromDate(donor.created_at) > 0
+                ? `${calculateDaysFromDate(donor.created_at)} days ago`
+                : 'today'}
             </p>
           </div>
         </li>
