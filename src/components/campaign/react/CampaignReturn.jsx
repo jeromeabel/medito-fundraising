@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useLayoutEffect } from 'react';
+import { useState, useEffect, useLayoutEffect } from 'react';
 import { useReward } from 'react-rewards';
 
 const CampaignReturn = () => {
@@ -6,6 +6,7 @@ const CampaignReturn = () => {
   const [customerEmail, setCustomerEmail] = useState('');
   const [customerName, setCustomerName] = useState('');
   const [amount, setAmount] = useState(0);
+  const [campaignId, setCampaignId] = useState(0);
 
   const { reward } = useReward('rewardId', 'confetti', {
     elementCount: 200,
@@ -16,10 +17,36 @@ const CampaignReturn = () => {
     spread: 150,
   });
 
+  const insertNewDonor = async () => {
+    try {
+      const originURL = window.location.origin;
+      const response = await fetch(`${originURL}/api/donor/${campaignId}`, {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: customerName,
+          amount: amount,
+          email: customerEmail,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      // const data = await response.json();
+    } catch (error) {
+      console.error('Error while inserting a New Donor data:', error);
+    }
+  };
+
   useEffect(() => {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     const sessionId = urlParams.get('session_id');
+    const campaignId = urlParams.get('campaign_id');
     const originURL = window.location.origin;
 
     const fetchData = async () => {
@@ -30,8 +57,12 @@ const CampaignReturn = () => {
         setCustomerEmail(data.customer_email);
         setCustomerName(data.customer_name);
         setAmount(Math.floor(data.amount / 100));
+        setCampaignId(campaignId);
       } catch (error) {
-        console.error('Error while retrieving data:', error);
+        console.error(
+          'Error while retrieving data from Stripe Session:',
+          error
+        );
       }
     };
 
@@ -41,6 +72,7 @@ const CampaignReturn = () => {
   useLayoutEffect(() => {
     if (status === 'complete') {
       reward();
+      insertNewDonor();
     }
   }, [status]);
 

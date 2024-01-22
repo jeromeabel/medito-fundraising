@@ -34,7 +34,7 @@ const campaign: Tables<'campaigns'> = await getJson(
         <CampaignProgress {campaign} client:only='react' />
       </div>
       <div class='order-3 shadow-xl md:shadow-none border md:border-none'>
-        <CampaignForm client:only='react' />
+        <CampaignForm client:only='react' id={campaign.id} />
       </div>
       <div class='order-6 shadow-xl md:shadow-none border md:border-none'>
         <CampaignDonors {campaign} />

@@ -8,16 +8,27 @@ import {
 
 const stripePromise = loadStripe(`${import.meta.env.PUBLIC_STRIPE_KEY}`);
 
-const CampaignForm = () => {
+type TypeCampaignForm = {
+  id: number;
+};
+const CampaignForm = ({ id }: TypeCampaignForm) => {
   const [clientSecret, setClientSecret] = useState('');
   const originURL = window.location.origin;
 
   useEffect(() => {
-    fetch(`${originURL}/api/campaign/1/donate`, {
-      method: 'POST',
-    })
-      .then((res) => res.json())
-      .then((data) => setClientSecret(data.clientSecret));
+    const fetchData = async () => {
+      try {
+        const response = await fetch(`${originURL}/api/campaign/${id}/donate`, {
+          method: 'POST',
+        });
+        const data = await response.json();
+        setClientSecret(data.clientSecret);
+      } catch (error) {
+        console.error('Error while retrieving data:', error);
+      }
+    };
+
+    fetchData();
   }, []);
 
   return (
