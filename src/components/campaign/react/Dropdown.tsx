@@ -2,10 +2,10 @@ import { useState } from 'react';
 
 type DropdownProps = {
   title: string | null;
-  content: string | null;
+  children: JSX.Element;
 };
 
-const Dropdown = ({ title, content }: DropdownProps) => {
+const Dropdown = ({ title, children }: DropdownProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -37,10 +37,10 @@ const Dropdown = ({ title, content }: DropdownProps) => {
 
       <div
         className={`overflow-hidden transition-max-h transition-all duration-500 ease-in-out ${
-          isOpen ? ` min-h-fit max-h-[100px] py-4` : 'max-h-0 py-0'
+          isOpen ? ` min-h-fit max-h-[500px] py-4` : 'max-h-0 py-0'
         }`}
       >
-        {content}
+        {children}
       </div>
     </div>
   );

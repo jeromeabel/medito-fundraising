@@ -5,6 +5,7 @@ import { getJson } from '@services/fetchAPI';
 import Dropdown from '@components/campaign/react/Dropdown.tsx';
 import H2 from '@components/base/H2.astro';
 import Section from '@components/base/Section.astro';
+import { CampaignFormEmail } from '@components/campaign/react/CampaignFormEmail';
 
 interface Props {
   campaign: Tables<'campaigns'>;
@@ -22,9 +23,15 @@ const questions: Tables<'questions'>[] = await getJson(
     <div class='flex flex-col gap-4 mt-4'>
       {
         questions?.map(({ title, content }) => (
-          <Dropdown client:only='react' {title} {content} />
+          <Dropdown client:only='react' {title}>
+            <p>{content}</p>
+          </Dropdown>
         ))
       }
+
+      <Dropdown client:only='react' title='I have more questions'>
+        <CampaignFormEmail client:load />
+      </Dropdown>
     </div>
   </Section>
 </div>
