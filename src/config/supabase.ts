@@ -5,3 +5,7 @@ export const supabase = createClient<Database>(
   import.meta.env.SUPABASE_URL,
   import.meta.env.SUPABASE_ANON_KEY
 );
+
+// const { data, error } = await supabase.functions.invoke('resend', {
+//   body: { name: 'Functions' },
+// })
