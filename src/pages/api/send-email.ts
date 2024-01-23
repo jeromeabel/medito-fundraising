@@ -1,24 +1,41 @@
-import type { APIRoute } from 'astro';
-import { Resend } from 'resend';
 
-const resend = new Resend(import.meta.env.RESEND_API_KEY);
+import type { APIRoute } from 'astro';
+
+/*
+const testEmail = {
+      from: "Acme <onboarding@resend.dev>",
+      to: ["dev@jeromeabel.net"],
+      subject: "BONJOUR MAN - 9",
+      html: "<strong>it works!</strong>"
+    }
+*/
 
 export const POST: APIRoute = async ({ request }) => {
+  const body = await request.json();
+  const { to, from, html, subject, text, reply_to } = body;
 
-  const send = await resend.emails.send({
-    from: 'Acme <onboarding@resend.dev>',
-    to: ['dev@jeromeabel.net'],
-    subject: 'Hello World',
-    html: '<strong>It works!</strong>',
+  if (!to || !from || !html || !subject || !text) {
+    return new Response(null, {
+      status: 404,
+      statusText: 'Did not provide the right data',
+    });
+  }
+
+  const res = await fetch("https://api.resend.com/emails", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${import.meta.env.RESEND_API_KEY}`,
+    },
+    body: JSON.stringify({ to, from, html, subject, text, reply_to }),    
   });
 
-  
-  return new Response(
-    JSON.stringify({
-      message: 'Success!',
-    }),
-    { status: 200 }
-  );
+  const data = await res.json();
 
+  return new Response(JSON.stringify(data), {
+    status: 200,
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
 };
-

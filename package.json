@@ -24,13 +24,11 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-rewards": "^2.0.4",
-    "resend": "^3.0.0",
     "stripe": "^14.12.0",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.3.3"
   },
   "devDependencies": {
-    "@tailwindcss/typography": "^0.5.10",
-    "supabase": "^1.131.5"
+    "@tailwindcss/typography": "^0.5.10"
   }
 }
