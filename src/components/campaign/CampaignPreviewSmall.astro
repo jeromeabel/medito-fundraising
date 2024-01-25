@@ -11,8 +11,11 @@ const { campaign } = Astro.props;
 const imageSrc = `${campaign.image_link}?q=80&w=400&auto=format&fit=crop`;
 ---
 
-<a href={`/campaign/${campaign.id}`} class='border flex hover:bg-gray-100'>
-  <div class='w-2/5'>
+<a
+  href={`/campaign/${campaign.id}`}
+  class='border flex flex-col md:flex-row hover:bg-gray-100'
+>
+  <div class='w-full md:w-2/5'>
     <Image
       src={imageSrc}
       width={250}

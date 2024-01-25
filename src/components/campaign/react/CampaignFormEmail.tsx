@@ -30,7 +30,7 @@ export const CampaignFormEmail = () => {
     emailBody.subject = `[Medito Fundraising] From ${name}`;
     emailBody.html = `<p>Message from: <strong>${name}</strong></p><p>Reply to:${email}</p><p>${textarea}</p>`;
 
-    const res = await fetch('/api/send-email', {
+    const response = await fetch('/api/send-email', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -38,7 +38,13 @@ export const CampaignFormEmail = () => {
       body: JSON.stringify(emailBody),
     });
 
-    if (res.ok) {
+    /* Handle messages from API?
+    const data = await response.json();
+    if (data.message) setResponseMessage(data.message);
+    }
+    */
+
+    if (response.ok) {
       setResponseMessage('Your message was sent successfully');
       setName('');
       setEmail('');
